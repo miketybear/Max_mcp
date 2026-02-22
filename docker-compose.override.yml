@@ -1,0 +1,26 @@
+# ============================================================================
+# IBM Maximo MAS 9.x MCP Server — Docker Compose Override (Development)
+# ============================================================================
+# This file is automatically loaded by `docker compose up` and overrides
+# the production settings in docker-compose.yml for local development.
+#
+# Usage:
+#   docker compose up maximo-mcp          # Dev mode (auto-applied)
+#   docker compose -f docker-compose.yml up   # Prod only (skip override)
+# ============================================================================
+
+services:
+  maximo-mcp:
+    build:
+      target: builder
+    image: maximo-mcp-server:dev
+    container_name: maximo-mcp-server-dev
+    volumes:
+      - ./src:/app/src:ro
+      - ./tsconfig.json:/app/tsconfig.json:ro
+      - mcp-logs:/app/logs
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+    read_only: false
+    entrypoint: ["npx", "ts-node", "src/index.ts"]

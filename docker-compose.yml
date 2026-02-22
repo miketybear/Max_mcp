@@ -1,0 +1,40 @@
+# ============================================================================
+# IBM Maximo MAS 9.x MCP Server — Docker Compose (Production)
+# ============================================================================
+# Usage:
+#   docker compose up maximo-mcp          # Run with stdio (interactive)
+#   docker compose run --rm maximo-mcp    # One-shot run
+#   docker compose build                  # Build image
+# ============================================================================
+
+services:
+  maximo-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    image: maximo-mcp-server:latest
+    container_name: maximo-mcp-server
+    restart: "no"
+    stdin_open: true
+    environment:
+      - MAXIMO_HOST=${MAXIMO_HOST}
+      - MAXIMO_API_KEY=${MAXIMO_API_KEY}
+      - MAXIMO_TIMEOUT=${MAXIMO_TIMEOUT:-30000}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - CACHE_ENABLED=${CACHE_ENABLED:-true}
+      - NODE_ENV=production
+    volumes:
+      - mcp-logs:/app/logs
+    env_file:
+      - path: .env
+        required: false
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:size=64M
+
+volumes:
+  mcp-logs:
+    driver: local

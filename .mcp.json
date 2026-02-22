@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "maximo": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "/Users/swetamshakula/Documents/Work/Maximo_mcp",
+      "env": {
+        "MAXIMO_HOST": "https://your-maximo-instance.example.com",
+        "MAXIMO_API_KEY": "your-api-key-here",
+        "LOG_LEVEL": "info",
+        "MAXIMO_TIMEOUT": "30000"
+      }
+    }
+  }
+}

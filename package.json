@@ -1,7 +1,7 @@
 {
-  "name": "maximo-mcp-server",
-  "version": "1.0.0",
-  "description": "MCP Server for IBM Maximo MAS 9.x API",
+  "name": "@themaximoguys/maximo-mcp-server",
+  "version": "2.0.0",
+  "description": "The most comprehensive MCP Server for IBM Maximo Application Suite 9.x — 175 tools across 20 modules",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
@@ -26,19 +26,29 @@
     "maximo",
     "mcp",
     "ibm",
+    "mas9",
     "api",
-    "automation"
+    "automation",
+    "oslc",
+    "enterprise-asset-management",
+    "model-context-protocol",
+    "claude",
+    "ai-tools"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swetamshakula/maximo-mcp-server.git"
+    "url": "git+https://github.com/themaximoguys/maximo-mcp-server.git"
   },
-  "homepage": "https://github.com/swetamshakula/maximo-mcp-server#readme",
+  "homepage": "https://github.com/themaximoguys/maximo-mcp-server#readme",
   "bugs": {
-    "url": "https://github.com/swetamshakula/maximo-mcp-server/issues"
+    "url": "https://github.com/themaximoguys/maximo-mcp-server/issues"
   },
-  "author": "Maximo MCP Development Team",
-  "license": "MIT",
+  "author": "The Maximo Guys <info@themaximoguys.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
@@ -58,7 +68,7 @@
     "@types/supertest": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "esbuild": "^0.19.0",
+    "esbuild": "^0.19.12",
     "eslint": "^8.50.0",
     "jest": "^29.7.0",
     "msw": "^2.0.0",

@@ -2,21 +2,22 @@
 
 # IBM Maximo MAS 9.x MCP Server
 
-### The most comprehensive Model Context Protocol server for IBM Maximo Application Suite
+### By The Maximo Guys
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+#### The most comprehensive Model Context Protocol server for IBM Maximo Application Suite
+
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](#license)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.2+-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![MCP SDK](https://img.shields.io/badge/MCP_SDK-0.5+-blueviolet)](https://modelcontextprotocol.io/)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Coverage](https://img.shields.io/badge/coverage-%3E70%25-green)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![npm version](https://img.shields.io/badge/npm-1.0.0-red?logo=npm)](https://www.npmjs.com/package/maximo-mcp-server)
+[![npm version](https://img.shields.io/badge/npm-2.0.0-red?logo=npm)](https://www.npmjs.com/package/@themaximoguys/maximo-mcp-server)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)]()
 
-**143 tools** across **16 modules** — Work Orders, Assets, Inventory, Service Requests, Purchase Orders, Preventive Maintenance, Job Plans, Persons & Labor, Locations, Classifications, Attachments, Analytics, Scheduling, Query & Search, Bulk Operations, and Developer Tools.
+**175 tools** across **20 modules** — Work Orders, Assets, Inventory, Service Requests, Purchase Orders, Preventive Maintenance, Job Plans, Persons & Labor, Locations, Classifications, Attachments, Analytics, Scheduling, Query & Search, Bulk Operations, Developer Tools, Security Groups, Automation Scripts & Admin, Domain Setup, and Integration Utilities.
 
-[Quick Start](#-quick-start) · [Documentation](#-documentation) · [Examples](#-usage-examples) · [Contributing](#-contributing)
+[Quick Start](#-quick-start) · [Documentation](#-documentation) · [Examples](#-usage-examples)
 
 </div>
 
@@ -68,7 +69,7 @@
 
 ## Overview
 
-This MCP server enables AI assistants (like Claude) and developers to interact with IBM Maximo Application Suite 9.x through **143 purpose-built tools** spanning every major Maximo functional area. Designed for enterprise development, testing, and automation workflows.
+This MCP server enables AI assistants (like Claude) and developers to interact with IBM Maximo Application Suite 9.x through **175 purpose-built tools** spanning every major Maximo functional area. Designed for enterprise development, testing, and automation workflows.
 
 ### Why This Server?
 
@@ -82,7 +83,7 @@ This MCP server enables AI assistants (like Claude) and developers to interact w
 
 | Feature | Description |
 |---------|-------------|
-| **143 MCP Tools** | Complete coverage across 16 Maximo modules |
+| **175 MCP Tools** | Complete coverage across 20 Maximo modules |
 | **Dual Authentication** | API Key and Username/Password (Basic Auth) support |
 | **OSLC Query Engine** | Full OSLC query support with a built-in query builder |
 | **Bulk Operations** | Batch create, update, delete, and process operations |
@@ -119,7 +120,11 @@ This MCP server enables AI assistants (like Claude) and developers to interact w
 | **Bulk Operations** | 4 | Bulk create, update, delete, batch processing |
 | **Classifications** | 4 | Classification trees, hierarchy, specifications, spec value updates |
 | **Attachments** | 4 | Upload, download, list, delete document attachments |
-| | **143** | |
+| **Security** | 8 | Security groups CRUD, user-group assignments, group user/role listing |
+| **Admin** | 9 | Automation scripts CRUD + execution, cron tasks, endpoints, custom actions |
+| **Setup** | 9 | Domain management (ALN, table, synonym), document types |
+| **Integration** | 6 | Max object structures, system properties, measurement units |
+| | **175** | |
 
 ---
 
@@ -137,13 +142,13 @@ This MCP server enables AI assistants (like Claude) and developers to interact w
 **From npm (recommended):**
 
 ```bash
-npm install -g maximo-mcp-server
+npm install -g @themaximoguys/maximo-mcp-server
 ```
 
 **From source:**
 
 ```bash
-git clone https://github.com/swetamshakula/maximo-mcp-server.git
+git clone https://github.com/themaximoguys/maximo-mcp-server.git
 cd maximo-mcp-server
 npm install
 npm run build
@@ -217,7 +222,7 @@ Add the following to your Claude Desktop configuration file:
   "mcpServers": {
     "maximo": {
       "command": "npx",
-      "args": ["-y", "maximo-mcp-server"],
+      "args": ["-y", "@themaximoguys/maximo-mcp-server"],
       "env": {
         "MAXIMO_HOST": "https://your-maximo-instance.com",
         "MAXIMO_API_KEY": "your-api-key-here"
@@ -698,7 +703,7 @@ Configure Claude Desktop to use the Docker container:
 │                                                                   │
 │  ┌──────────────┐  ┌───────────────┐  ┌────────────────────────┐ │
 │  │ Auth Manager  │  │  Tool Router  │  │  Response Formatter    │ │
-│  │  (API Key /   │  │  (143 tools)  │  │  (Normalize + Format)  │ │
+│  │  (API Key /   │  │  (175 tools)  │  │  (Normalize + Format)  │ │
 │  │  Basic Auth)  │  │               │  │                        │ │
 │  └──────────────┘  └───────────────┘  └────────────────────────┘ │
 │                                                                   │
@@ -709,7 +714,7 @@ Configure Claude Desktop to use the Docker container:
 └───────────────────────────┬──────────────────────────────────────┘
                             │
 ┌───────────────────────────▼──────────────────────────────────────┐
-│                       Module Layer (16 modules)                   │
+│                       Module Layer (20 modules)                   │
 │                                                                   │
 │  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐        │
 │  │Work Ord│ │ Assets │ │  Inv   │ │  S.R.  │ │  P.O.  │        │
@@ -723,6 +728,9 @@ Configure Claude Desktop to use the Docker container:
 │  ┌────────┐                                                      │
 │  │DevTools│                                                      │
 │  └────────┘                                                      │
+│  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐                    │
+│  │Securty │ │ Admin  │ │ Setup  │ │  Integ │                    │
+│  └────────┘ └────────┘ └────────┘ └────────┘                    │
 └───────────────────────────┬──────────────────────────────────────┘
                             │ HTTPS (REST API)
 ┌───────────────────────────▼──────────────────────────────────────┐
@@ -761,7 +769,7 @@ maximo-mcp-server/
 │   │   ├── rate-limiter.ts         #   Token bucket rate limiter
 │   │   ├── cache-manager.ts        #   In-memory TTL cache
 │   │   └── types.ts                #   Shared core type definitions
-│   ├── modules/                    # 16 Maximo functional modules
+│   ├── modules/                    # 20 Maximo functional modules
 │   │   ├── work-orders/            #   15 tools
 │   │   ├── assets/                 #   12 tools
 │   │   ├── inventory/              #   11 tools
@@ -777,7 +785,11 @@ maximo-mcp-server/
 │   │   ├── query-search/           #    4 tools
 │   │   ├── bulk-operations/        #    4 tools
 │   │   ├── classifications/        #    4 tools
-│   │   └── attachments/            #    4 tools
+│   │   ├── attachments/            #    4 tools
+│   │   ├── security/               #    8 tools (MAS 9 Security Groups)
+│   │   ├── admin/                  #    9 tools (Automation Scripts, Cron, Endpoints)
+│   │   ├── setup/                  #    9 tools (Domains, Doc Types)
+│   │   └── integration/            #    6 tools (Object Structures, System Props)
 │   ├── utils/                      # Utility functions
 │   ├── resources/                  # MCP resource definitions
 │   └── tools/                      # Tool registry helpers
@@ -1049,7 +1061,7 @@ Yes. Use `config.json` with multiple environment definitions and the `defaultEnv
 If you discover a security vulnerability, please report it responsibly:
 
 1. **Do not** open a public GitHub issue
-2. Email **swetamsh009@icloud.com** with details
+2. Email **info@themaximoguys.com** with details
 3. Include steps to reproduce, impact assessment, and suggested fix if possible
 4. We will acknowledge receipt within 48 hours and provide a timeline for resolution
 
@@ -1057,45 +1069,15 @@ If you discover a security vulnerability, please report it responsibly:
 
 ## Contributing
 
-We welcome contributions from the community. Here's how to get started:
+This is proprietary software owned by The Maximo Guys. Contributions are accepted by invitation only.
 
-### Getting Started
-
-1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/your-username/maximo-mcp-server.git`
-3. **Branch** from `main`: `git checkout -b feature/your-feature-name`
-4. **Install** dependencies: `npm install`
-5. **Make** your changes
-6. **Test** your changes: `npm test`
-7. **Lint** your code: `npm run lint`
-8. **Commit** with a meaningful message
-9. **Push** and open a Pull Request
-
-### Code Standards
-
-- **TypeScript strict mode** — All strict compiler options are enabled
-- **Zod validation** — All tool inputs must have Zod schemas in `validators.ts`
-- **Test coverage** — Maintain 70%+ coverage; new code should include tests
-- **ESLint + Prettier** — Run `npm run lint` and `npm run format` before committing
-- **Conventional Commits** — Use prefixes: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`
-
-### Adding a New Module
-
-Follow the [Module Implementation Checklist](#module-structure):
-
-1. Create `src/modules/<name>/` with all five files
-2. Implement operations against the Maximo OSLC API
-3. Define MCP tools with descriptive names (`maximo_<action>_<object>`)
-4. Add Zod validators for all tool inputs
-5. Register in `src/index.ts`
-6. Write unit + integration tests
-7. Update this README's module table
+If you'd like to report a bug or request a feature, please contact **info@themaximoguys.com**.
 
 ---
 
 ## Roadmap
 
-### v1.0 — Current
+### v1.0
 
 - 143 tools across 16 modules
 - Dual authentication (API Key + Basic Auth)
@@ -1104,14 +1086,24 @@ Follow the [Module Implementation Checklist](#module-structure):
 - Bulk operations and batch processing
 - Comprehensive error handling, caching, and rate limiting
 
-### v1.1 — Planned
+### v2.0 — Current
+
+- **175 tools across 20 modules**
+- 4 new MAS 9 modules: Security, Admin, Setup, Integration
+- Security group management with user-group assignments
+- Automation script CRUD, execution, and deployment
+- Domain management (ALN, table, synonym) and document types
+- System property management and object structure introspection
+- x-method-override PATCH support for MAS 9 OSLC endpoints
+
+### v2.1 — Planned
 
 - Webhook support for Maximo event notifications
 - Custom saved query management
 - Enhanced analytics with trend analysis
 - Tool usage metrics and telemetry
 
-### v2.0 — Future
+### v3.0 — Future
 
 - GraphQL adapter layer
 - WebSocket support for real-time Maximo events
@@ -1123,7 +1115,9 @@ Follow the [Module Implementation Checklist](#module-structure):
 
 ## License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Copyright (c) 2026 **The Maximo Guys**. All Rights Reserved.
+
+This is proprietary software. Unauthorized copying, modification, distribution, or use of this software is strictly prohibited. See the [LICENSE](LICENSE) file for full terms.
 
 ---
 
@@ -1132,7 +1126,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 - **IBM** — for the Maximo Application Suite and its comprehensive REST API
 - **Anthropic** — for the [Model Context Protocol](https://modelcontextprotocol.io/) specification
 - **MCP Community** — for the SDK, tooling, and ecosystem
-- All **contributors** who help improve this project
 
 ---
 
@@ -1140,6 +1133,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 **[Back to Top](#ibm-maximo-mas-9x-mcp-server)**
 
-Built for the Maximo community — empowering developers to build better integrations through AI-assisted development.
+Copyright (c) 2026 The Maximo Guys. All Rights Reserved.
 
 </div>

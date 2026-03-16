@@ -39,6 +39,10 @@ import { DevToolsOperations } from './modules/dev-tools/index.js';
 import { JobPlanOperations } from './modules/plans/index.js';
 import { AnalyticsOperations } from './modules/analytics/index.js';
 import { SchedulerOperations } from './modules/scheduler/index.js';
+import { SecurityOperations } from './modules/security/index.js';
+import { AdminOperations } from './modules/admin/index.js';
+import { SetupOperations } from './modules/setup/index.js';
+import { IntegrationOperations } from './modules/integration/index.js';
 
 // Module tools
 import { createWorkOrderTools } from './modules/work-orders/index.js';
@@ -57,6 +61,10 @@ import { createDevTools } from './modules/dev-tools/index.js';
 import { createJobPlanTools } from './modules/plans/index.js';
 import { createAnalyticsTools } from './modules/analytics/index.js';
 import { createSchedulerTools } from './modules/scheduler/index.js';
+import { createSecurityTools } from './modules/security/index.js';
+import { createAdminTools } from './modules/admin/index.js';
+import { createSetupTools } from './modules/setup/index.js';
+import { createIntegrationTools } from './modules/integration/index.js';
 
 import { createLogger } from './utils/logger.js';
 
@@ -165,6 +173,10 @@ class MaximoMCPServer {
       const jobPlanOps = new JobPlanOperations(maximoClient);
       const analyticsOps = new AnalyticsOperations(maximoClient);
       const schedulerOps = new SchedulerOperations(maximoClient);
+      const securityOps = new SecurityOperations(maximoClient);
+      const adminOps = new AdminOperations(maximoClient);
+      const setupOps = new SetupOperations(maximoClient);
+      const integrationOps = new IntegrationOperations(maximoClient);
 
       // Create and register tools from each module
       const workOrderTools = createWorkOrderTools(workOrderOps);
@@ -183,6 +195,10 @@ class MaximoMCPServer {
       const jobPlanTools = createJobPlanTools(jobPlanOps);
       const analyticsTools = createAnalyticsTools(analyticsOps);
       const schedulerTools = createSchedulerTools(schedulerOps);
+      const securityTools = createSecurityTools(securityOps);
+      const adminTools = createAdminTools(adminOps);
+      const setupTools = createSetupTools(setupOps);
+      const integrationTools = createIntegrationTools(integrationOps);
 
       // Register all tools
       this.registerTools(workOrderTools, workOrderOps);
@@ -201,6 +217,10 @@ class MaximoMCPServer {
       this.registerTools(jobPlanTools, jobPlanOps);
       this.registerTools(analyticsTools, analyticsOps);
       this.registerTools(schedulerTools, schedulerOps);
+      this.registerTools(securityTools, securityOps);
+      this.registerTools(adminTools, adminOps);
+      this.registerTools(setupTools, setupOps);
+      this.registerTools(integrationTools, integrationOps);
 
       logger.info('All modules initialized successfully', {
         totalTools: this.tools.length,
@@ -220,6 +240,10 @@ class MaximoMCPServer {
         jobPlans: jobPlanTools.length,
         analytics: analyticsTools.length,
         scheduler: schedulerTools.length,
+        security: securityTools.length,
+        admin: adminTools.length,
+        setup: setupTools.length,
+        integration: integrationTools.length,
       });
     } catch (error) {
       logger.error('Failed to initialize modules', {

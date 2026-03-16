@@ -1,5 +1,39 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+
+# Logs
 logs/
-.env
 *.log
+npm-debug.log*
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+config.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+# PAI / Claude internal
+MEMORY/
+Plans/
+.mcp.json
+
+# Temporary files
+*.tmp
+*.bak

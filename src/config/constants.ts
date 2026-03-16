@@ -23,6 +23,27 @@ export const API_ENDPOINTS = {
   PM: '/maximo/api/os/mxpm',
   CLASSIFICATIONS: '/maximo/api/os/mxclassification',
   ATTACHMENTS: '/maximo/api/os/mxattachment',
+  // Security module - MAS 9
+  SECURITY_GROUPS: '/maximo/oslc/os/mxapisecuritygroup',
+  // Admin module - MAS 9
+  AUTOSCRIPTS: '/maximo/oslc/os/mxapiautoscript',
+  SCRIPT_EXEC: '/maximo/oslc/script',
+  CRON_TASKS: '/maximo/oslc/os/mxapicrontaskdef',
+  ENDPOINTS_CONFIG: '/maximo/oslc/os/mxapiendpoint',
+  ACTIONS: '/maximo/oslc/os/mxapiaction',
+  // Setup module - MAS 9
+  DOMAINS: '/maximo/oslc/os/MXDOMAIN',
+  ALN_DOMAINS: '/maximo/oslc/os/mxapialndomain',
+  TABLE_DOMAINS: '/maximo/oslc/os/mxapitabledomain',
+  SYNONYM_DOMAINS: '/maximo/oslc/os/mxapisynonymdomain',
+  DOC_TYPES: '/maximo/oslc/os/mxapidoctype',
+  // Integration/Dev utilities module - MAS 9
+  MAX_OBJECTS: '/maximo/oslc/os/mxapimaxobject',
+  MAX_VARS: '/maximo/oslc/os/mxapimaxvars',
+  MEASURE_UNITS: '/maximo/oslc/os/mxapimeasureunit',
+  CRAFTS: '/maximo/oslc/os/mxapicraft',
+  HAZARDS: '/maximo/oslc/os/mxapihazard',
+  SHIFTS: '/maximo/oslc/os/mxapishift',
 } as const;
 
 /**

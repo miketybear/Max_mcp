@@ -33,6 +33,7 @@ coverage/
 MEMORY/
 Plans/
 .mcp.json
+.claude/
 
 # Temporary files
 *.tmp

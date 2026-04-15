@@ -12,7 +12,7 @@
 [![MCP SDK](https://img.shields.io/badge/MCP_SDK-0.5+-blueviolet)](https://modelcontextprotocol.io/)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Coverage](https://img.shields.io/badge/coverage-%3E70%25-green)]()
-[![npm version](https://img.shields.io/badge/npm-2.0.0-red?logo=npm)](https://www.npmjs.com/package/@themaximoguys/maximo-mcp-server)
+[![npm version](https://img.shields.io/npm/v/@themaximoguys/maximo-mcp?logo=npm)](https://www.npmjs.com/package/@themaximoguys/maximo-mcp)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)]()
 
 **175 tools** across **20 modules** — Work Orders, Assets, Inventory, Service Requests, Purchase Orders, Preventive Maintenance, Job Plans, Persons & Labor, Locations, Classifications, Attachments, Analytics, Scheduling, Query & Search, Bulk Operations, Developer Tools, Security Groups, Automation Scripts & Admin, Domain Setup, and Integration Utilities.
@@ -142,7 +142,7 @@ This MCP server enables AI assistants (like Claude) and developers to interact w
 **From npm (recommended):**
 
 ```bash
-npm install -g @themaximoguys/maximo-mcp-server
+npm install -g @themaximoguys/maximo-mcp
 ```
 
 **From source:**
@@ -222,7 +222,7 @@ Add the following to your Claude Desktop configuration file:
   "mcpServers": {
     "maximo": {
       "command": "npx",
-      "args": ["-y", "@themaximoguys/maximo-mcp-server"],
+      "args": ["-y", "@themaximoguys/maximo-mcp"],
       "env": {
         "MAXIMO_HOST": "https://your-maximo-instance.com",
         "MAXIMO_API_KEY": "your-api-key-here"

@@ -1,0 +1,41 @@
+# Source code (distributed as compiled bundle)
+src/
+tests/
+docs/
+
+# Git & CI
+.git/
+.github/
+
+# Environment & secrets
+.env
+.env.*
+.mcp.json
+
+# Dependencies (installed by consumer)
+node_modules/
+
+# Test & coverage
+coverage/
+*.test.ts
+*.spec.ts
+jest.config.*
+
+# Build config
+tsconfig.json
+.eslintrc*
+.prettierrc*
+
+# IDE
+.vscode/
+.idea/
+
+# Project internals
+CLAUDE.md
+Plans/
+MEMORY/
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db

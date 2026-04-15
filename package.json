@@ -1,12 +1,18 @@
 {
-  "name": "@themaximoguys/maximo-mcp-server",
+  "name": "@themaximoguys/maximo-mcp",
   "version": "2.0.0",
-  "description": "The most comprehensive MCP Server for IBM Maximo Application Suite 9.x — 175 tools across 20 modules",
+  "description": "MCP server providing 175+ tools for IBM Maximo Asset Management — work orders, assets, inventory, service requests, and more",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "maximo-mcp-server": "dist/cli.js"
+    "maximo-mcp": "dist/bundle.js"
   },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "dev": "ts-node src/index.ts",
     "build": "tsc && npm run build:bundle",
@@ -23,35 +29,35 @@
     "prepublishOnly": "npm run clean && npm run build"
   },
   "keywords": [
-    "maximo",
     "mcp",
+    "maximo",
     "ibm",
-    "mas9",
-    "api",
-    "automation",
+    "asset-management",
+    "eam",
+    "cmms",
+    "work-orders",
     "oslc",
-    "enterprise-asset-management",
+    "mas9",
     "model-context-protocol",
     "claude",
     "ai-tools"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/themaximoguys/maximo-mcp-server.git"
+    "url": "git+https://github.com/themaximoguys/maximo-mcp.git"
   },
-  "homepage": "https://github.com/themaximoguys/maximo-mcp-server#readme",
+  "homepage": "https://github.com/themaximoguys/maximo-mcp#readme",
   "bugs": {
-    "url": "https://github.com/themaximoguys/maximo-mcp-server/issues"
+    "url": "https://github.com/themaximoguys/maximo-mcp/issues"
   },
-  "author": "The Maximo Guys <info@themaximoguys.com>",
+  "author": "TheMaximoGuys <hello@themaximoguys.com>",
   "license": "SEE LICENSE IN LICENSE",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
+    "node": ">=18"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",

@@ -235,3 +235,24 @@ npm run dev
 ```
 
 Server listens on stdio (standard input/output) for MCP protocol messages. Use MCP Inspector or Claude Desktop for interactive testing.
+
+## Available Skills
+
+- **MaximoQuery** (`/maximo-query`) — Natural language Maximo queries via MCP. Usage: `/maximo-query "Show me all open work orders for pump assets"`
+
+## Hooks
+
+- **PreToolUse/Write:** Secret detection — blocks writes containing hardcoded API keys
+- **PostToolUse/Write:** Auto-lint — runs ESLint --fix on changed TypeScript files
+- **PostToolUse/Bash:** Git push reminder — reminds to verify remote before pushing
+
+## npm Publishing
+
+This package is configured for npm as `@themaximoguys/maximo-mcp`:
+```bash
+# Build and pack (dry run)
+npm run build && npm pack --dry-run
+
+# Publish (requires npm login to @themaximoguys org)
+npm publish --access public
+```
